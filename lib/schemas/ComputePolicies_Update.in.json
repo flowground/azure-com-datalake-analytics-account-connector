@@ -1,0 +1,67 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "accountName": {
+            "required": true,
+            "type": "string"
+        },
+        "computePolicyName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The parameters used to update a compute policy.",
+            "properties": {
+                "properties": {
+                    "description": "The compute policy properties to use when updating a compute policy.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "maxDegreeOfParallelismPerJob": {
+                            "description": "The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.",
+                            "format": "int32",
+                            "minimum": 1,
+                            "type": "integer"
+                        },
+                        "minPriorityPerJob": {
+                            "description": "The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.",
+                            "format": "int32",
+                            "minimum": 1,
+                            "type": "integer"
+                        },
+                        "objectId": {
+                            "description": "The AAD object identifier for the entity to create a policy for.",
+                            "format": "uuid",
+                            "type": "string"
+                        },
+                        "objectType": {
+                            "description": "The type of AAD object the object identifier refers to.",
+                            "enum": [
+                                "User",
+                                "Group",
+                                "ServicePrincipal"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "AADObjectType"
+                            }
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

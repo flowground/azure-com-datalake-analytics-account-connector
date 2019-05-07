@@ -1,0 +1,52 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "accountName": {
+            "required": true,
+            "type": "string"
+        },
+        "firewallRuleName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The parameters used to create a new firewall rule.",
+            "properties": {
+                "properties": {
+                    "description": "The firewall rule properties to use when creating a new firewall rule.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "endIpAddress": {
+                            "description": "The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.",
+                            "type": "string"
+                        },
+                        "startIpAddress": {
+                            "description": "The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "startIpAddress",
+                        "endIpAddress"
+                    ]
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

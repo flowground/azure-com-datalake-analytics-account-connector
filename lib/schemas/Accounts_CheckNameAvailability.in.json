@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "location": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Data Lake Analytics account name availability check parameters.",
+            "properties": {
+                "name": {
+                    "description": "The Data Lake Analytics name to check availability for.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The resource type. Note: This should not be set by the user, as the constant value is Microsoft.DataLakeAnalytics/accounts",
+                    "enum": [
+                        "Microsoft.DataLakeAnalytics/accounts"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "accountName": {
+            "required": true,
+            "type": "string"
+        },
+        "dataLakeStoreAccountName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The parameters used to add a new Data Lake Store account.",
+            "properties": {
+                "properties": {
+                    "description": "The Data Lake Store account properties to use when adding a new Data Lake Store account.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "suffix": {
+                            "description": "The optional suffix for the Data Lake Store account.",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

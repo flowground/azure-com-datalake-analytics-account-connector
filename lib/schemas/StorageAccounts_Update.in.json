@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "accountName": {
+            "required": true,
+            "type": "string"
+        },
+        "storageAccountName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The parameters used to update an Azure Storage account.",
+            "properties": {
+                "properties": {
+                    "description": "The Azure Storage account properties to use when updating an Azure Storage account.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "accessKey": {
+                            "description": "The updated access key associated with this Azure Storage account that will be used to connect to it.",
+                            "type": "string"
+                        },
+                        "suffix": {
+                            "description": "The optional suffix for the storage account.",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

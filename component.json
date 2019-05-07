@@ -1,0 +1,577 @@
+{
+    "title": "DataLakeAnalyticsAccountManagementClient",
+    "description": "Creates an Azure Data Lake Analytics account management client.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/datalake-analytics-account/2016-11-01/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Operations_List": {
+            "main": "./lib/actions/Operations_List.js",
+            "title": "Lists all of the available Data Lake Analytics REST API operations.",
+            "description": "Lists all of the available Data Lake Analytics REST API operations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Operations_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_List": {
+            "main": "./lib/actions/Accounts_List.js",
+            "title": "Gets the first page of Data Lake Analytics accounts, if any, within the current subscription. This includes a link to the next page, if any.",
+            "description": "Gets the first page of Data Lake Analytics accounts, if any, within the current subscription. This includes a link to the next page, if any.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Locations_GetCapability": {
+            "main": "./lib/actions/Locations_GetCapability.js",
+            "title": "Gets subscription-level properties and limits for Data Lake Analytics specified by resource location.",
+            "description": "Gets subscription-level properties and limits for Data Lake Analytics specified by resource location.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Locations_GetCapability.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_CheckNameAvailability": {
+            "main": "./lib/actions/Accounts_CheckNameAvailability.js",
+            "title": "Checks whether the specified account name is available or taken.",
+            "description": "Checks whether the specified account name is available or taken.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_CheckNameAvailability.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_ListByResourceGroup": {
+            "main": "./lib/actions/Accounts_ListByResourceGroup.js",
+            "title": "Gets the first page of Data Lake Analytics accounts, if any, within a specific resource group. This includes a link to the next page, if any.",
+            "description": "Gets the first page of Data Lake Analytics accounts, if any, within a specific resource group. This includes a link to the next page, if any.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_ListByResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_Delete": {
+            "main": "./lib/actions/Accounts_Delete.js",
+            "title": "Begins the delete process for the Data Lake Analytics account object specified by the account name.",
+            "description": "Begins the delete process for the Data Lake Analytics account object specified by the account name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_Get": {
+            "main": "./lib/actions/Accounts_Get.js",
+            "title": "Gets details of the specified Data Lake Analytics account.",
+            "description": "Gets details of the specified Data Lake Analytics account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_Update": {
+            "main": "./lib/actions/Accounts_Update.js",
+            "title": "Updates the Data Lake Analytics account object specified by the accountName with the contents of the account object.",
+            "description": "Updates the Data Lake Analytics account object specified by the accountName with the contents of the account object.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_Create": {
+            "main": "./lib/actions/Accounts_Create.js",
+            "title": "Creates the specified Data Lake Analytics account. This supplies the user with computation services for Data Lake Analytics workloads.",
+            "description": "Creates the specified Data Lake Analytics account. This supplies the user with computation services for Data Lake Analytics workloads.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ComputePolicies_ListByAccount": {
+            "main": "./lib/actions/ComputePolicies_ListByAccount.js",
+            "title": "Lists the Data Lake Analytics compute policies within the specified Data Lake Analytics account. An account supports, at most, 50 policies",
+            "description": "Lists the Data Lake Analytics compute policies within the specified Data Lake Analytics account. An account supports, at most, 50 policies",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ComputePolicies_ListByAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ComputePolicies_Delete": {
+            "main": "./lib/actions/ComputePolicies_Delete.js",
+            "title": "Deletes the specified compute policy from the specified Data Lake Analytics account",
+            "description": "Deletes the specified compute policy from the specified Data Lake Analytics account",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ComputePolicies_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ComputePolicies_Get": {
+            "main": "./lib/actions/ComputePolicies_Get.js",
+            "title": "Gets the specified Data Lake Analytics compute policy.",
+            "description": "Gets the specified Data Lake Analytics compute policy.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ComputePolicies_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ComputePolicies_Update": {
+            "main": "./lib/actions/ComputePolicies_Update.js",
+            "title": "Updates the specified compute policy.",
+            "description": "Updates the specified compute policy.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ComputePolicies_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ComputePolicies_CreateOrUpdate": {
+            "main": "./lib/actions/ComputePolicies_CreateOrUpdate.js",
+            "title": "Creates or updates the specified compute policy. During update, the compute policy with the specified name will be replaced with this new compute policy. An account supports, at most, 50 policies",
+            "description": "Creates or updates the specified compute policy. During update, the compute policy with the specified name will be replaced with this new compute policy. An account supports, at most, 50 policies",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ComputePolicies_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DataLakeStoreAccounts_ListByAccount": {
+            "main": "./lib/actions/DataLakeStoreAccounts_ListByAccount.js",
+            "title": "Gets the first page of Data Lake Store accounts linked to the specified Data Lake Analytics account. The response includes a link to the next page, if any.",
+            "description": "Gets the first page of Data Lake Store accounts linked to the specified Data Lake Analytics account. The response includes a link to the next page, if any.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DataLakeStoreAccounts_ListByAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DataLakeStoreAccounts_Delete": {
+            "main": "./lib/actions/DataLakeStoreAccounts_Delete.js",
+            "title": "Updates the Data Lake Analytics account specified to remove the specified Data Lake Store account.",
+            "description": "Updates the Data Lake Analytics account specified to remove the specified Data Lake Store account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DataLakeStoreAccounts_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DataLakeStoreAccounts_Get": {
+            "main": "./lib/actions/DataLakeStoreAccounts_Get.js",
+            "title": "Gets the specified Data Lake Store account details in the specified Data Lake Analytics account.",
+            "description": "Gets the specified Data Lake Store account details in the specified Data Lake Analytics account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DataLakeStoreAccounts_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DataLakeStoreAccounts_Add": {
+            "main": "./lib/actions/DataLakeStoreAccounts_Add.js",
+            "title": "Updates the specified Data Lake Analytics account to include the additional Data Lake Store account.",
+            "description": "Updates the specified Data Lake Analytics account to include the additional Data Lake Store account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DataLakeStoreAccounts_Add.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "FirewallRules_ListByAccount": {
+            "main": "./lib/actions/FirewallRules_ListByAccount.js",
+            "title": "Lists the Data Lake Analytics firewall rules within the specified Data Lake Analytics account.",
+            "description": "Lists the Data Lake Analytics firewall rules within the specified Data Lake Analytics account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/FirewallRules_ListByAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "FirewallRules_Delete": {
+            "main": "./lib/actions/FirewallRules_Delete.js",
+            "title": "Deletes the specified firewall rule from the specified Data Lake Analytics account",
+            "description": "Deletes the specified firewall rule from the specified Data Lake Analytics account",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/FirewallRules_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "FirewallRules_Get": {
+            "main": "./lib/actions/FirewallRules_Get.js",
+            "title": "Gets the specified Data Lake Analytics firewall rule.",
+            "description": "Gets the specified Data Lake Analytics firewall rule.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/FirewallRules_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "FirewallRules_Update": {
+            "main": "./lib/actions/FirewallRules_Update.js",
+            "title": "Updates the specified firewall rule.",
+            "description": "Updates the specified firewall rule.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/FirewallRules_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "FirewallRules_CreateOrUpdate": {
+            "main": "./lib/actions/FirewallRules_CreateOrUpdate.js",
+            "title": "Creates or updates the specified firewall rule. During update, the firewall rule with the specified name will be replaced with this new firewall rule.",
+            "description": "Creates or updates the specified firewall rule. During update, the firewall rule with the specified name will be replaced with this new firewall rule.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/FirewallRules_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageAccounts_ListByAccount": {
+            "main": "./lib/actions/StorageAccounts_ListByAccount.js",
+            "title": "Gets the first page of Azure Storage accounts, if any, linked to the specified Data Lake Analytics account. The response includes a link to the next page, if any.",
+            "description": "Gets the first page of Azure Storage accounts, if any, linked to the specified Data Lake Analytics account. The response includes a link to the next page, if any.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageAccounts_ListByAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageAccounts_Delete": {
+            "main": "./lib/actions/StorageAccounts_Delete.js",
+            "title": "Updates the specified Data Lake Analytics account to remove an Azure Storage account.",
+            "description": "Updates the specified Data Lake Analytics account to remove an Azure Storage account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageAccounts_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageAccounts_Get": {
+            "main": "./lib/actions/StorageAccounts_Get.js",
+            "title": "Gets the specified Azure Storage account linked to the given Data Lake Analytics account.",
+            "description": "Gets the specified Azure Storage account linked to the given Data Lake Analytics account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageAccounts_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageAccounts_Update": {
+            "main": "./lib/actions/StorageAccounts_Update.js",
+            "title": "Updates the Data Lake Analytics account to replace Azure Storage blob account details, such as the access key and/or suffix.",
+            "description": "Updates the Data Lake Analytics account to replace Azure Storage blob account details, such as the access key and/or suffix.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageAccounts_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageAccounts_Add": {
+            "main": "./lib/actions/StorageAccounts_Add.js",
+            "title": "Updates the specified Data Lake Analytics account to add an Azure Storage account.",
+            "description": "Updates the specified Data Lake Analytics account to add an Azure Storage account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageAccounts_Add.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageAccounts_ListStorageContainers": {
+            "main": "./lib/actions/StorageAccounts_ListStorageContainers.js",
+            "title": "Lists the Azure Storage containers, if any, associated with the specified Data Lake Analytics and Azure Storage account combination. The response includes a link to the next page of results, if any.",
+            "description": "Lists the Azure Storage containers, if any, associated with the specified Data Lake Analytics and Azure Storage account combination. The response includes a link to the next page of results, if any.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageAccounts_ListStorageContainers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageAccounts_GetStorageContainer": {
+            "main": "./lib/actions/StorageAccounts_GetStorageContainer.js",
+            "title": "Gets the specified Azure Storage container associated with the given Data Lake Analytics and Azure Storage accounts.",
+            "description": "Gets the specified Azure Storage container associated with the given Data Lake Analytics and Azure Storage accounts.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageAccounts_GetStorageContainer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageAccounts_ListSasTokens": {
+            "main": "./lib/actions/StorageAccounts_ListSasTokens.js",
+            "title": "Gets the SAS token associated with the specified Data Lake Analytics and Azure Storage account and container combination.",
+            "description": "Gets the SAS token associated with the specified Data Lake Analytics and Azure Storage account and container combination.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageAccounts_ListSasTokens.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
